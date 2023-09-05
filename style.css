@@ -13,10 +13,11 @@ body {
   position: absolute;
   z-index: -1;
   background-color: yellow;
-  height: 500px;
+  height: 600px;
   width: 100%;
   top: 0;
-  clip-path: polygon(0 0, 100% 0, 100% 40%, 0 80%);
+  left: 0;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 40vw), 0 80%);
 }
 
 .about-me-container {
@@ -32,40 +33,44 @@ body {
   align-items: center;
   width: 100%;
   margin-bottom: 100px;
+  padding: 20px;
 }
 
 .top-container img {
-  max-width: 400px;
+  /* max-width: 400px; */
   width: 100%;
 }
 
 .top-name {
   position: absolute;
   z-index: 1;
-  bottom: 20px;
+  left: 10px;
+  bottom: 30px;
   font-size: 3.5rem;
   color: white;
 }
 
 .top-portrait {
   position: relative;
-  padding: 20px 40px;
+  height: auto;
 }
 
 .social-links-container {
   width: 100%;
   display: flex;
-  gap: 20px;
+  gap: 30px;
   justify-content: center;
 }
 
 .social-links-container img {
-  width: 30px;
+  width: 50px;
 }
 
 .about-me-container p {
   width: 100%;
-  /* need to fix so text is centered */
+}
+.about-me-container h2 {
+  text-align: center;
 }
 
 /* MY WORK SECTION */
@@ -75,6 +80,8 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 50px;
   padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .my-work-text {
@@ -121,6 +128,7 @@ body {
 /* FOOTER SECTION */
 
 footer {
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -130,23 +138,154 @@ footer {
   word-wrap: break-word;
 }
 
-footer h2:first-of-type {
+footer h2 {
   text-align: center;
 }
 
 .contact-svg {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
+  display: none;
 }
 
-footer img {
-  width: 100%;
+.contact-holder {
+  display: flex;
+  align-items: center;
+}
+
+.footer-portrait {
+  margin: -20px;
+  width: auto;
 }
 
 .footer-links a img {
-  width: 30px;
+  width: 70px;
 }
 
-footer > p {
-  margin-bottom: 100px;
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+footer div,
+h2,
+footer > div > p {
+  margin-bottom: 50px;
+}
+
+/* MEDIA QUERIES  */
+
+@media (min-width: 600px) {
+  .top-container {
+    display: block;
+  }
+  .top-container,
+  .my-work-container {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .social-links-container {
+    display: none;
+  }
+
+  .top-portrait {
+    float: left;
+    padding: 0;
+    width: 50%;
+    max-width: 500px;
+    z-index: 2;
+    left: -30px;
+    margin-bottom: -10px;
+  }
+  .about-me-container {
+    margin-top: 100px;
+    padding: 50px 30px;
+    box-shadow: 1px 6px 10px 1px rgba(0, 0, 0, 0.4);
+  }
+  .top-name {
+    left: 250px;
+    top: 10px;
+    width: max-content;
+    font-size: 3rem;
+  }
+
+  footer {
+    display: grid;
+    gap: 20px;
+    margin-top: 200px;
+    grid-template-columns: 60% 1fr;
+    padding: 50px;
+    padding-bottom: 0;
+  }
+
+  .footer-portrait {
+    width: 100%;
+    margin: 0;
+  }
+
+  footer h2 {
+    text-align: left;
+  }
+
+  .contact-svg {
+    display: block;
+    margin-right: 10px;
+  }
+
+  .footer-links a img {
+    width: 50px;
+  }
+
+  .footer-links {
+    justify-content: space-between;
+    width: fit-content;
+  }
+}
+
+/* 1000px */
+
+@media (min-width: 1000px) {
+  .top-background {
+    height: 1000px;
+  }
+
+  .top-container {
+    display: flex;
+    flex-direction: row;
+    max-width: 1325px;
+    margin: 0 auto 200px;
+  }
+
+  .about-me-container {
+    max-height: 1000px;
+    margin-top: 0;
+  }
+
+  .about-me-container h2 {
+    text-align: left;
+  }
+  .social-links-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .top-portrait {
+    max-width: 400px;
+    left: 0;
+  }
+
+  .top-portrait img {
+  }
+
+  .top-name {
+    width: 80%;
+    left: 40px;
+    top: auto;
+  }
+
+  .footer-portrait {
+    max-width: 600px;
+  }
 }
